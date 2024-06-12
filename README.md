@@ -42,7 +42,7 @@ Esta es una aplicación web que permite a los usuarios personalizar peluches, vo
    ```
 2. Navega al directorio del proyecto:
    ```bash
-   cd sgpfrontend2
+   cd Sistema-de-gestion-de-peluches-Frontend
    ```
 3. Instala las dependencias:
    ```bash
