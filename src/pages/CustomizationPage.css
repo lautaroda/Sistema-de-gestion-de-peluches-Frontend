@@ -1,0 +1,99 @@
+/* Estilos base para la página de personalización */
+.customization-page {
+  padding: 20px; 
+}
+
+/* Formulario de personalización */
+.customization-page form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+/* Inputs y select del formulario */
+.customization-page select,
+.customization-page input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+/* Botón del formulario */
+.customization-page button {
+  padding: 10px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Botones de eliminar */
+.delete-button, 
+.customization-delete-button {
+  padding: 8px 12px;
+  background-color: #eee; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Lista de personalizaciones */
+.customization-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Elementos de la lista de personalizaciones */
+.customization-page li {
+  background: var(--form-background-color);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--navbar-link-color);
+}
+
+/* Mensajes */
+.success-message {
+  color: green;
+}
+
+.error-message {
+  color: red;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .customization-page {
+    padding: 10px; 
+  }
+
+  .customization-page form {
+    align-items: center; 
+  }
+
+  .customization-page select,
+  .customization-page input,
+  .customization-page button {
+    width: 100%; 
+  }
+
+  .customization-page li {
+    padding: 8px; 
+  }
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 769px) {
+  .customization-page {
+    max-width: 800px; 
+    margin: 0 auto; 
+  }
+
+  .customization-page form {
+    width: 100%; 
+  }
+}

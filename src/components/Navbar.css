@@ -1,0 +1,58 @@
+@import '../variables.css'; /* Traemos las variables de colores y estilos */
+
+/* Barra de navegación */
+.navbar {
+width: 80%; /* Achicamos el ancho al 80% */
+background-color: var(--navbar-background-color);
+overflow: hidden; 
+position: fixed; /* La barra queda fija arriba al hacer scroll */
+top: 0; 
+left: 0;
+z-index: 1000; /* Me aseguro de que la barra esté por encima de todo */
+margin: 0 10%; /* Espacio a los costados, centrada */
+border-bottom-left-radius: 10px;
+border-bottom-right-radius: 10px;
+box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.468);
+}
+
+.navbar ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center; /* Centramos los links horizontalmente */
+}
+
+.navbar ul li {
+float: left; /* Links flotan a la izquierda */
+}
+
+/* Estilos para los links de la barra */
+.navbar ul li a {
+display: block;
+color: var(--navbar-link-color);
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+/* Link activo (de la página actual) */
+.navbar ul li a.active {
+box-shadow: inset -1px 0px 12px 0.5px rgba(0, 0, 0, 0.468);
+border-radius: 5px;
+
+}
+
+.logout-button {
+background: none;
+border: none;
+color: var(--navbar-link-color);
+cursor: pointer!important; 
+padding: 14px 16px;
+text-decoration: none;
+font-size: 16px;
+}
+
+.logout-button:hover {
+background-color: var(--navbar-link-active-color);
+}

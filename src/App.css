@@ -1,0 +1,109 @@
+@import './variables.css'; /* Importo mis variables de colores y estilos */
+
+/* Estilos generales para toda la app */
+.App {
+  text-align: center; /* Centro el texto por defecto */
+  background-color: var(--background-color); /* Uso mi variable para el fondo */
+  color: var(--text-color); /* Y esta para el color del texto */
+  min-height: 100vh; /* Me aseguro de que la app ocupe toda la pantalla */
+  display: flex; /* Flexbox para maquetar más fácil */
+  flex-direction: column; /* Apilo los elementos verticalmente */
+}
+
+/* Cabecera de la app (header) */
+.App-header {
+  background-color: var(--primary-color); /* Color principal para el header */
+  padding: 20px; /* Un poco de espacio interior */
+  color: var(--text-color); /* Texto en color claro para que contraste */
+}
+
+.App-header-content { /* Contenedor para el contenido del header */
+  display: flex;
+  flex-direction: column; /* Apilo el contenido verticalmente */
+  align-items: center; /* Centro horizontalmente */
+  justify-content: center; /* Centro verticalmente */
+}
+
+/* Contenido principal de la app (main) */
+main {
+  flex: 1; /* Ocupa todo el espacio disponible */
+  display: flex;
+  flex-direction: column; /* Apilo los elementos verticalmente */
+  align-items: center; /* Centro horizontalmente */
+  justify-content: center; /* Centro verticalmente */
+  padding: 20px;
+  margin-top: 0px; /* Espacio arriba para que no quede tapado por el header */
+}
+
+/* Contenedores para el contenido */
+.content,
+.secondary-content {
+  background-color: var(--content-background-color);
+  color: var(--text-color);
+  padding: 6px;
+  border-radius: 8px;
+}
+
+.secondary-content {
+  margin-top: 20px; /* Espacio entre los contenedores */
+  padding: 10px; /* Padding más chico para este contenedor */
+}
+
+/* Formulario de login (si lo tuvieras) */
+.login-form {
+  background-color: var(--form-background-color);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa para destacarlo */
+  max-width: 400px; /* Ancho máximo para que no se estire demasiado */
+  box-shadow: 0 4px 9px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Estilos para los elementos del formulario */
+.login-form label,
+.login-form input,
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 4px;
+  max-width: 100px;
+
+}
+
+.login-form input {
+  background-color: var(--input-background-color); 
+}
+
+.login-form button {
+  background-color: var(--secondary-color); 
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.login-form button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Media Query para pantallas grandes (desktops) */
+@media (min-width: 1025px) { 
+  .customization-page {
+    max-width: 960px; /* Aumenta el ancho máximo para pantallas grandes */
+    margin: 0 auto; /* Centra la página horizontalmente */
+  }
+
+  .customization-page form {
+    width: 60%; /* Ajusta el ancho del formulario según tus preferencias */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+  }
+
+  .customization-page ul {
+    width: 60%; /* Ajusta el ancho de la lista según tus preferencias */
+    margin: 0 auto; /* Centra la lista horizontalmente */
+  }
+}

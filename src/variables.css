@@ -1,0 +1,89 @@
+:root {
+  --primary-color: #f5f5f8;
+  --secondary-color: #131170;
+  --background-color: #222;
+  --text-color: #eee;
+  --navbar-background-color: #333;
+  --navbar-link-color: #eee;
+  --navbar-link-active-color: #02007c3b;
+  --content-background-color: #686767;
+  --form-background-color: #333;
+  --input-background-color: #444;
+}
+
+
+/* Estilos base para todo el sitio */
+body {
+  font-family: sans-serif; 
+  margin: 0; 
+  background-color: var(--background-color); 
+  color: var(--text-color); 
+}
+
+/* Barra de navegación */
+nav {
+  background-color: var(--navbar-background-color);
+  padding: 1rem;
+}
+
+nav a {
+  color: var(--navbar-link-color);
+  text-decoration: none;
+  margin: 0 1rem;
+}
+
+nav a:hover,
+nav a.active { /* Clase "active" para el enlace de la página actual */
+  color: var(--navbar-link-active-color);
+}
+
+/* Contenido principal */
+main {
+  padding: 2rem;
+  background-color: var(--content-background-color);
+}
+
+h1, h2, h3 {
+  color: var(--primary-color); /* Títulos en el color primario */
+}
+
+/* Formularios */
+form {
+  background-color: var(--form-background-color);
+  padding: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Botones */
+button {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Media Queries para adaptar el diseño */
+@media (max-width: 768px) {
+  nav {
+    text-align: center; /* Centrar enlaces en móviles */
+  }
+
+  nav a {
+    display: block; /* Enlaces en bloque para que ocupen todo el ancho */
+    margin: 0.5rem 0;
+  }
+
+  main {
+    padding: 1rem; /* Menos padding en pantallas pequeñas */
+  }
+}
