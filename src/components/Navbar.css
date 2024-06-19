@@ -1,58 +1,109 @@
-@import '../variables.css'; /* Traemos las variables de colores y estilos */
+@import '../variables.css'; 
 
-/* Barra de navegación */
+
 .navbar {
-width: 80%; /* Achicamos el ancho al 80% */
-background-color: var(--navbar-background-color);
-overflow: hidden; 
-position: fixed; /* La barra queda fija arriba al hacer scroll */
-top: 0; 
-left: 0;
-z-index: 1000; /* Me aseguro de que la barra esté por encima de todo */
-margin: 0 10%; /* Espacio a los costados, centrada */
-border-bottom-left-radius: 10px;
-border-bottom-right-radius: 10px;
-box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.468);
+  width: 100%;
+  background-color: var(--navbar-background-color);
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  display: flex;
+  justify-content: center; 
+  box-shadow: -1px 2px 8px rgba(0, 0, 0, 0.468);
 }
 
-.navbar ul {
-list-style-type: none;
-margin: 0;
-padding: 0;
-display: flex;
-justify-content: center; /* Centramos los links horizontalmente */
+.navbar-container {
+  width: 100%;
+  max-width: 1200px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; 
 }
 
-.navbar ul li {
-float: left; /* Links flotan a la izquierda */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--navbar-link-color);
+  font-size: 24px;
+  cursor: pointer;
 }
 
-/* Estilos para los links de la barra */
-.navbar ul li a {
-display: block;
-color: var(--navbar-link-color);
-text-align: center;
-padding: 14px 16px;
-text-decoration: none;
+/* Estilos para los enlaces de la barra de navegación */
+.navbar-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
 }
 
-/* Link activo (de la página actual) */
-.navbar ul li a.active {
-box-shadow: inset -1px 0px 12px 0.5px rgba(0, 0, 0, 0.468);
-border-radius: 5px;
+.navbar-links li {
+  margin: 0 1rem;
+}
 
+
+.navbar-links a {
+  display: block;
+  color: var(--navbar-link-color);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.navbar-links a.active {
+  box-shadow: inset -1px 0px 12px 0.5px rgba(0, 0, 0, 0.468);
+  border-radius: 5px;
+  color:rgba(255, 255, 255, 0.529);
 }
 
 .logout-button {
-background: none;
-border: none;
-color: var(--navbar-link-color);
-cursor: pointer!important; 
-padding: 14px 16px;
-text-decoration: none;
-font-size: 16px;
+  background: none;
+  border: none;
+  color: var(--navbar-link-color);
+  cursor: pointer!important;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .logout-button:hover {
-background-color: var(--navbar-link-active-color);
+  background-color: var(--navbar-link-active-color);
+}
+
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    background-color: var(--navbar-background-color); 
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .navbar-links li {
+    margin: 0.5rem 0;
+  }
+
+  .navbar-links a {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
 }

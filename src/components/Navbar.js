@@ -1,52 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const isAuthenticated = !!localStorage.getItem('token'); // Verifica si hay un token
+  const isAuthenticated = !!localStorage.getItem('token'); 
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
+    setMenuOpen(false); // Cerrar el menú al hacer logout
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
     <nav className="navbar">
-      <ul>
-        <li>
-
-        </li>
-        {!isAuthenticated && (
+      <div className="navbar-container">
+        <button className="menu-toggle" onClick={toggleMenu}>
+          ☰
+        </button>
+        <ul className={`navbar-links ${menuOpen ? 'open' : ''}`}>
           <li>
-            <NavLink to="/login" activeclassname="active">
-              Login
+            <NavLink to="/" activeclassname="active" onClick={closeMenu}>
+              Home
             </NavLink>
           </li>
-        )}
-        <li>
-          <NavLink to="/plushies" activeclassname="active">
-            Plushies
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/rankings" activeclassname="active">
-            Rankings
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/customize" activeclassname="active">
-            Customize
-          </NavLink>
-        </li>
-        {isAuthenticated && (
+          {!isAuthenticated && (
+            <li>
+              <NavLink to="/login" activeclassname="active" onClick={closeMenu}>
+                Login
+              </NavLink>
+            </li>
+          )}
           <li>
-            <button onClick={handleLogout} className="logout-button">
-              Logout
-            </button>
+            <NavLink to="/plushies" activeclassname="active" onClick={closeMenu}>
+              Plushies
+            </NavLink>
           </li>
-        )}
-      </ul>
+          <li>
+            <NavLink to="/rankings" activeclassname="active" onClick={closeMenu}>
+              Rankings
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/customize" activeclassname="active" onClick={closeMenu}>
+              Customize
+            </NavLink>
+          </li>
+          {isAuthenticated && (
+            <li>
+              <button onClick={handleLogout} className="logout-button">
+                Logout
+              </button>
+            </li>
+          )}
+        </ul>
+      </div>
     </nav>
   );
 };

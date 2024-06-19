@@ -1,10 +1,8 @@
-// src/pages/CustomizationPage.js
 import React, { useEffect, useState } from 'react';
 import { getAllCustomizations, createCustomization, getPlushies, deleteCustomization, voteCustomization } from '../api/api';
 import './CustomizationPage.css';
 
 function CustomizationPage() {
-    // Estados para guardar los datos que vamos a mostrar/usar
   const [customizations, setCustomizations] = useState([]);
   const [plushies, setPlushies] = useState([]);
   const [formData, setFormData] = useState({ plushieId: '', color: '', accessory: '' });
@@ -12,12 +10,10 @@ function CustomizationPage() {
   const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-        // Al cargar la página, traemos las personalizaciones y los peluches disponibles
-
     const fetchCustomizations = async () => {
       try {
         const response = await getAllCustomizations();
-        console.log('Customizations Data:', response.data); // Agregar este log para verificar los datos
+        console.log('Customizations Data:', response.data);
         setCustomizations(response.data);
       } catch (error) {
         console.error('Error fetching customizations:', error);
@@ -34,24 +30,21 @@ function CustomizationPage() {
     fetchCustomizations();
     fetchPlushies();
   }, []);
-  // Función para manejar el envío del formulario de nueva personalización
 
-  // Función para manejar el envío del formulario de nueva personalización
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Evitamos que la página se recargue
+    event.preventDefault();
     try {
       const response = await createCustomization(formData);
-      setCustomizations([...customizations, response.data]); // Agregamos la nueva personalización a la lista
-      setFormData({ plushieId: '', color: '', accessory: '' }); // Limpiamos el formulario
-      setSuccessMessage('¡Personalización creada con éxito!'); 
-      setErrorMessage(''); // Limpiamos cualquier mensaje de error anterior
+      setCustomizations([...customizations, response.data]);
+      setFormData({ plushieId: '', color: '', accessory: '' });
+      setSuccessMessage('¡Personalización creada con éxito!');
+      setErrorMessage('');
     } catch (error) {
       console.error('Error al crear personalización:', error);
-      setErrorMessage('Error al crear personalización: ' + error.message); // Mostramos mensaje de error
-      setSuccessMessage(''); // Limpiamos cualquier mensaje de éxito anterior
+      setErrorMessage('Error al crear personalización: ' + error.message);
+      setSuccessMessage('');
     }
   };
-  // Función para actualizar el estado del formulario a medida que el usuario escribe
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -65,14 +58,12 @@ function CustomizationPage() {
       console.error('Error deleting customization:', error);
     }
   };
-  // Función para registrar un voto a una personalización
 
   const handleVote = async (id) => {
     try {
       await voteCustomization(id);
       setSuccessMessage('¡Voto registrado con éxito!');
       setErrorMessage('');
-      // Refetch customizations after voting
       const response = await getAllCustomizations();
       setCustomizations(response.data);
     } catch (error) {
@@ -114,21 +105,17 @@ function CustomizationPage() {
       </form>
       <h3>Personalizaciones Actuales</h3>
       <ul>
-        {customizations.map(customization => (
-          <li key={customization._id}>
-            {customization.plushieId ? (
-              <>
-                <p>Peluche: {customization.plushieId.name}</p>
-                <p>Color: {customization.color}</p>
-                <p>Accesorio: {customization.accessory}</p>
-                <button onClick={() => handleVote(customization._id)}>Votar</button>
-                <button onClick={() => handleDeleteCustomization(customization._id)} className="delete-button">Eliminar</button>
-              </>
-            ) : (
-              <p></p>
-            )}
-          </li>
-        ))}
+        {customizations
+          .filter(customization => customization.plushieId) // Filtrar personalizaciones con datos completos
+          .map(customization => (
+            <li key={customization._id} className="customization-item">
+              <p>Peluche: {customization.plushieId.name}</p>
+              <p>Color: {customization.color}</p>
+              <p>Accesorio: {customization.accessory}</p>
+              <button onClick={() => handleVote(customization._id)}>Votar</button>
+              <button onClick={() => handleDeleteCustomization(customization._id)} className="delete-button">Eliminar</button>
+            </li>
+          ))}
       </ul>
     </div>
   );

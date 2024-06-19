@@ -1,0 +1,127 @@
+/* Estilos base para la página de inicio */
+.home-page {
+  font-family: sans-serif;
+  color: var(--text-color);
+}
+
+.navbar {
+  background-color: var(--navbar-background-color);
+  padding: 1rem;
+}
+
+.navbar-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-links li {
+  margin: 0 1rem;
+}
+
+.navbar-links a {
+  color: var(--navbar-link-color);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-links a:hover,
+.navbar-links a.active {
+  color: var(--navbar-link-active-color);
+}
+
+.hero-section {
+  background: url('https://example.com/hero-image.jpg') no-repeat center center;
+  background-size: cover;
+  color: var(--text-color);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.hero-button:hover {
+  background-color: rgba(0, 0, 0, 0.234);
+  color: var(--primary-color);
+}
+
+/* Sección de información */
+.info-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 50px 20px;
+  background-color: var(--content-background-color);
+}
+
+.info-card {
+  background-color: var(--form-background-color);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 30%;
+}
+
+.info-card h2 {
+  margin-top: 0;
+}
+
+.info-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.info-button:hover {
+  background-color: rgba(0, 0, 0, 0.234);
+  color: var(--primary-color);
+}
+
+/* Media Queries para adaptar el diseño */
+@media (max-width: 768px) {
+  .navbar {
+    text-align: center;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+  }
+
+  .navbar-links a {
+    margin: 0.5rem 0;
+  }
+
+  .hero-content {
+    padding: 1rem;
+  }
+
+  .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info-card {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+}

@@ -1,50 +1,38 @@
+@import '../variables.css'; /* Importo las variables de colores y estilos */
+
 .ranking-page {
-  padding: 20px; /* Espacio alrededor del contenido del ranking */
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; /* Centra el contenido */
 }
 
 .ranking-page ul {
-  list-style: none; /* Sacamos los puntitos de la lista */
+  list-style: none;
   padding: 0;
 }
 
 .ranking-page li {
-  background: var(--form-background-color); /* Usamos el color de fondo de formularios */
-  margin: 10px 0; /* Espacio entre cada ítem del ranking */
+  background: var(--form-background-color);
+  margin: 10px 0;
   padding: 10px;
-  border-radius: 5px; /* Bordes redondeados para que se vea más piola */
-  color: var(--navbar-link-color); /* Color del texto igual al de los links de la navbar */
+  border-radius: 5px;
+  color: var(--navbar-link-color);
 }
 
-/* Media Query para celulares (pantallas chicas) */
-@media (max-width: 768px) { 
-  .customization-page { 
-    padding: 10px; /* Reduzco el espacio en pantallas chicas */
+@media (max-width: 768px) {
+  .ranking-page {
+    padding: 10px;
   }
 
-  .customization-page form {
-    align-items: center; /* Centro los elementos del formulario en vertical */
-  }
-
-  /* Hago que los campos del formulario ocupen todo el ancho */
-  .customization-page select,
-  .customization-page input,
-  .customization-page button {
-    width: 100%;
-  }
-
-  .customization-page li {
-    padding: 8px; /* Menos padding en los ítems del ranking en pantallas chicas */
+  .ranking-page li {
+    padding: 8px;
   }
 }
 
-/* Media Query opcional para pantallas más grandes (si es necesario) */
 @media (min-width: 769px) {
-  .customization-page {
-    max-width: 800px; /* Limito el ancho en pantallas grandes */
-    margin: 0 auto; /* Centro la página en la pantalla */
-  }
-
-  .customization-page form {
-    width: 100%; 
+  .ranking-page {
+    max-width: 100%;
+    margin: 0 auto;
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import PlushiePage from './pages/PlushiePage';
@@ -8,7 +7,6 @@ import RankingPage from './pages/RankingPage';
 import CustomizationPage from './pages/CustomizationPage';
 import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
-
 import './variables.css';
 import './App.css';
 
@@ -30,14 +28,7 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route
-                path="/rankings"
-                element={
-                  <PrivateRoute>
-                    <RankingPage />
-                  </PrivateRoute>
-                }
-              />
+              <Route path="/rankings" element={<RankingPage />} />
               <Route
                 path="/customize"
                 element={
